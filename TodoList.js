@@ -26,10 +26,11 @@ while (loopingVariable) {
         j = prompt('Enter index of the todo you want to remove:');
 
         // delete Object.assign(todoList, {[j]: todoList[j + 1] })[j + 1];
-        console.log(todoList[j + 1])
-        let newString = todoList[j + 1]
+        let k = parseInt(j) + 1
+        // console.log(todoList[k.toString()])
+        let newString = todoList[k]
         todoList[j] = newString
-        // delete todoList[j + 1];
+        delete todoList[k];
         // if (todoList[j] === undefined) {
         //     delete todoList[j];
         // }
