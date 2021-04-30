@@ -6,6 +6,7 @@
 
 let todoList = {}
 let j = 0
+let l = 1
 let loopingVariable = true
 
 while (loopingVariable) {
@@ -24,16 +25,20 @@ while (loopingVariable) {
 
     else if (userCommand === 'delete') {
         j = prompt('Enter index of the todo you want to remove:');
+        let valuesArray = Object.values(todoList);
+        let k = parseInt(j) + l
 
-        // delete Object.assign(todoList, {[j]: todoList[j + 1] })[j + 1];
-        let k = parseInt(j) + 1
-        // console.log(todoList[k.toString()])
-        let newString = todoList[k]
-        todoList[j] = newString
-        delete todoList[k];
-        // if (todoList[j] === undefined) {
-        //     delete todoList[j];
-        // }
+        while (j < valuesArray.length) {
+
+            let newString = todoList[k]
+            todoList[j] = newString
+            delete todoList[k];
+            if (todoList[j] === undefined) {
+                delete todoList[j];
+            }
+            l++; j++; k++;
+        }
+
         console.log('Updated Todo List: ', todoList);
     }
 
